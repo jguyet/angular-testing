@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 
+/** Injectable provider on all modules of this project */
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root'/** Force global singleton */
 })
 export class AuthenticationService {
 
     public isLoggedIn = false;
 
-    constructor( /** dependencies */ ) {
+    constructor( /** dependencies (others injectable) */ ) {
 
     }    
 

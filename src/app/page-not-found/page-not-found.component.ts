@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../services/AuthenticationService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
@@ -9,7 +10,12 @@ import { AuthenticationService } from '../services/AuthenticationService';
 export class PageNotFoundComponent {
     public blabla: number = 1;
 
-    constructor(public authenticationService: AuthenticationService) {
+    constructor(public authenticationService: AuthenticationService,
+                public router: Router) {
 
+    }
+
+    public navigate() {
+        this.router.navigate(['/home']);
     }
 }

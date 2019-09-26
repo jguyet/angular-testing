@@ -5,18 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthenticationService } from './services/AuthenticationService';
+import { AuthGuard } from './services/auth.guard';
+import { StoreModule } from '@ngrx/store';
+import { CounterComponent } from './counter/counter.component';
+import { counterReducer } from './reducers/counter.reducer';
 
 @NgModule({
   declarations: [
+    /** Declaration of your packaging components */
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({
+      count: counterReducer
+    })
   ],
   providers: [
-    AuthenticationService
+    /** Singletons services */
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
